@@ -1,0 +1,26 @@
+[
+  {
+    "fields": {
+        "owner": 1,
+        "file": "gallery/file1.jpg"
+    },
+    "model": "gallery.photo",
+    "pk": 1
+  },
+  {
+    "fields": {
+        "owner": 1,
+        "file": "gallery/file2.jpg"
+    },
+    "model": "gallery.photo",
+    "pk": 2
+  },
+  {
+    "fields": {
+        "owner": 1,
+        "file": "gallery/file3.jpg"
+    },
+    "model": "gallery.photo",
+    "pk": 3
+  }
+]
