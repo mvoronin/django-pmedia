@@ -83,9 +83,9 @@ MEDIA_URL = '/media/'
 PRIVATE_MEDIA_URL = '/private/media/'
 NGINX_PRIVATE_URL = '/pmedia/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'website1/static/')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'website1/media/')
-PRIVATE_MEDIA_ROOT = os.path.join(BASE_DIR, 'website1/pmedia/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'testprj/static/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'testprj/media/')
+PRIVATE_MEDIA_ROOT = os.path.join(BASE_DIR, 'testprj/pmedia/')
 
 
 LOGGING = {
