@@ -5,9 +5,15 @@ import logging
 from urlparse import urlparse
 from django.conf import settings
 from django.http import HttpResponseForbidden, HttpResponse
+from django.views.generic import ListView
 from gallery.models import Photo
 
 logger = logging.getLogger(__name__)
+
+
+class Gallery(ListView):
+    model = Photo
+    template_name = 'gallery.html'
 
 
 def private_media(request):
@@ -33,6 +39,11 @@ def private_media(request):
 
     parsed = urlparse(request.path)
     path = parsed.path
-    response = HttpResponse()
-    response['X-Accel-Redirect'] = settings.NGINX_PRIVATE_URL + path[len(settings.PRIVATE_MEDIA_URL):]
-    return response
+
+    if settings.DEBUG:
+        from django.views.static import serve
+        return serve(request, path[len(settings.PRIVATE_MEDIA_URL):], document_root=settings.PRIVATE_MEDIA_ROOT)
+    else:
+        response = HttpResponse()
+        response['X-Accel-Redirect'] = settings.NGINX_PRIVATE_URL + path[len(settings.PRIVATE_MEDIA_URL):]
+        return response

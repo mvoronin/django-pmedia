@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    {% for photo in object_list %}
+        <table>
+            <tr>
+                <th>PK</th><th>URL</th><th></th>
+            </tr>
+            <tr>
+                <td>{{ photo.pk }}</td>
+                <td>{{ photo.file.url }}</td>
+                <td><img src="{{ photo.file.url }}" width="200"></td>
+            </tr>
+        </table>
+    {% endfor %}
+</body>
+</html>
